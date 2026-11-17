@@ -13,7 +13,7 @@
       "description": "Check HomeConnect 2 Gbps fiber installation technician windows, hold a slot, or reschedule appointment HC-5510.",
       "type": "application/a2a-agent-card+json",
       "url": "https://gpaschercher-sudo.github.io/homeconnect-agentic-peer/agent-card.json",
-      "targetDigest": "sha256:831a620862ca21a18f862eea0b9e55df670be8c8574ed72eecfb5cbfbae9d8ed",
+      "targetDigest": "sha256:44fe58367127ee46b46528ccf8b28da3fea5601622dbf4c3a1498fd2de8ffe05",
       "tags": [
         "open-agentic-web",
         "a2a",
