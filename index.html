@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HomeConnect Fiber — schedule your fiber installation, hold a technician window for 10 minutes and confirm with zero reschedule fee. An independent Open Agentic Web peer (demonstration).">
+  <meta name="theme-color" content="#06101D">
+  <title>HomeConnect Fiber — Your connection starts here</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://toskaman.github.io" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <noscript><style>.native-select{display:block!important}[id$="-choices"],.state-box{min-height:0!important}</style></noscript>
+  <script type="module" src="script.js"></script>
+  <script type="module" src="site.js"></script>
+  <script type="module" src="peer-sync.js"></script>
+  <script type="module" src="ui.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#availability">Skip to technician windows</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand-lockup" href="#top">
+        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+          <rect width="36" height="36" rx="10" fill="#071A2F"/>
+          <path d="M9 21c5-8 13-8 18 0M12.5 24c3-4.5 8-4.5 11 0" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="18" cy="26" r="2.3" fill="#5EEAD4"/>
+        </svg>
+        <span>
+          <span class="brand-name">HomeConnect Fiber</span>
+          <span class="brand-domain">Fiber installation scheduling</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="#appointment">Appointment</a>
+        <a href="#availability">Windows</a>
+        <a href="#status">Tracking</a>
+        <a href="#assistant">Assistant</a>
+      </nav>
+      <div class="header-meta">
+        <span class="pill-badge">Demo provider</span>
+        <button type="button" class="ghost-btn btn-sm" data-theme-toggle="1" aria-pressed="true" aria-label="Switch light or dark theme"><span aria-hidden="true">◐</span> Theme</button>
+        <a id="coordinator-link" href="https://toskaman.github.io/continuity-agentic-web/" class="coord-link"><span class="coord-dot" aria-hidden="true"></span>Open CONTINUITY ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="peer-hero dark">
+      <div class="container peer-hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">HomeConnect · 2 Gbps symmetric fiber</span>
+          <h1>Your connection <em>starts here.</em></h1>
+          <p class="lead" data-agent-facts="service_overview">Get your fiber installation scheduled, effortlessly. Hold a technician window for ten minutes, then confirm — rescheduling is free.</p>
+          <div class="btn-row">
+            <a href="#availability" class="btn btn-primary btn-lg">Pick an installation window <span class="arrow" aria-hidden="true">→</span></a>
+            <a href="#assistant" class="btn btn-lg">Ask the assistant</a>
+          </div>
+          <div class="hero-trust">
+            <span>€0 reschedule fee</span>
+            <span>Saturday off-peak: €10 less</span>
+            <span>Current visit kept until you confirm</span>
+          </div>
+        </div>
+        <section id="appointment" class="reveal" aria-labelledby="appt-heading">
+          <h2 id="appt-heading" class="sr-only">Your technician visit</h2>
+          <div id="appt-panel" class="state-box" aria-live="polite"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="journey reveal">
+          <div class="journey-head">
+            <h2>From order to connection</h2>
+            <span class="muted">Your visit only moves when you confirm.</span>
+          </div>
+          <ol class="stepper" id="journey-steps">
+            <li data-step="verify" data-state="done"><span class="st-title">Check your visit</span><span class="st-desc">Order HC-5510 on file.</span></li>
+            <li data-step="browse" data-state="current"><span class="st-title">See windows</span><span class="st-desc">Weekday or Saturday.</span></li>
+            <li data-step="hold" data-state="todo"><span class="st-title">Hold a window</span><span class="st-desc">Reserved for 10 minutes.</span></li>
+            <li data-step="prepare" data-state="todo"><span class="st-title">Prepare the visit</span><span class="st-desc">Keys and power on site.</span></li>
+            <li data-step="confirm" data-state="todo"><span class="st-title">Confirm</span><span class="st-desc">Free of charge.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="availability">
+      <div class="container work-grid">
+        <section class="card card-lg reveal" aria-labelledby="win-heading">
+          <div class="card-head">
+            <div>
+              <h2 id="win-heading">Available technician windows</h2>
+              <p class="card-sub" data-agent-facts="windows_and_fees">Arrival windows for the optical splice and ONT activation. Rescheduling is free.</p>
+            </div>
+            <span class="badge badge-info">10-min hold</span>
+          </div>
+          <div class="controls-stack">
+            <div id="win-choices"></div>
+            <div class="native-select">
+              <label for="win-select" class="field-label">Technician arrival window</label>
+              <select id="win-select">
+                <option value="2026-11-20">Fri, Nov 20, 2026 — 14:00–17:00 (€49.00, €0 reschedule fee)</option>
+                <option value="2026-11-21">Sat, Nov 21, 2026 — 09:00–12:00 (€39.00 off-peak, €0 reschedule fee)</option>
+              </select>
+            </div>
+            <div class="action-bar">
+              <p class="hint">Holding keeps your current visit active while you decide.</p>
+              <div class="btn-row">
+                <button id="hold-btn" type="button" class="secondary-btn">Hold this window</button>
+                <button id="change-btn" type="button" class="primary-btn">Confirm new appointment</button>
+              </div>
+            </div>
+          </div>
+          <p id="action-feedback" role="status" class="feedback"></p>
+        </section>
+
+        <aside class="stack reveal" id="status" aria-labelledby="status-heading">
+          <section class="card">
+            <div class="card-head"><h2 id="status-heading">Installation tracking</h2><span class="badge badge-ok" id="status-badge">Scheduled</span></div>
+            <ol class="timeline" id="status-timeline">
+              <li data-step="received" data-state="done"><div><div class="tl-title">Order received</div><div class="tl-desc">HC-5510, 2 Gbps symmetric.</div><span class="sr-only sr-state">Completed.</span></div></li>
+              <li data-step="found" data-state="done"><div><div class="tl-title">Availability identified</div><div class="tl-desc">Two windows this week.</div><span class="sr-only sr-state">Completed.</span></div></li>
+              <li data-step="held" data-state="todo"><div><div class="tl-title">Window held</div><div class="tl-desc">Reserved for 10 minutes.</div><span class="sr-only sr-state">Not started.</span></div></li>
+              <li data-step="confirmed" data-state="todo"><div><div class="tl-title">Change confirmed</div><div class="tl-desc">No fee charged.</div><span class="sr-only sr-state">Not started.</span></div></li>
+              <li data-step="planned" data-state="current"><div><div class="tl-title">Visit planned</div><div class="tl-desc" id="planned-desc">Technician visit on file.</div><span class="sr-only sr-state">In progress.</span></div></li>
+            </ol>
+            <p class="hint" style="margin-top:var(--s-4)">No live technician tracking on this demo site.</p>
+          </section>
+          <section class="card" aria-labelledby="log-heading">
+            <div class="card-head"><h2 id="log-heading">Recent activity</h2></div>
+            <ul class="log-list" id="activity-log"><li class="log-empty">No changes yet in this session.</li></ul>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container details-grid">
+        <section class="card reveal" aria-labelledby="prep-heading">
+          <div class="card-head"><h2 id="prep-heading">Before the technician arrives</h2></div>
+          <dl class="spec-grid">
+            <div><dt>Service</dt><dd>XGS-PON 2 Gbps symmetric + ONT</dd></div>
+            <div><dt>On site</dt><dd>Someone with keys · mains power on</dd></div>
+            <div><dt>Saturday off-peak</dt><dd>€39.00 instead of €49.00</dd></div>
+            <div><dt>Fees</dt><dd>€0.00 reschedule · €30.00 cancel</dd></div>
+          </dl>
+          <p id="policy-note" class="policy-note demo-disclosure">Zero reschedule fee (€0.00). Tenant must have keys and active apartment electricity during ONT optical splice testing. Off-peak Saturday appointments receive a €10.00 installation discount (€39.00 instead of €49.00). No router hardware sales, mobile SIM transfers, or TV bundle upgrades on this site.</p>
+        </section>
+        <section class="card dev-card reveal" aria-labelledby="dev-heading">
+          <h3 id="dev-heading">For agents &amp; developers</h3>
+          <p>HomeConnect is an independent Open Agentic Web site. Its scheduler network and capabilities are published on its own origin.</p>
+          <div class="artifact-links">
+            <a href="./agent-manifest.json" target="_blank" rel="noopener">agent-manifest.json</a>
+            <a href="./homeconnect_scheduler.network.json" target="_blank" rel="noopener">homeconnect_scheduler.network.json</a>
+            <a href="./.well-known/agent-card.json" target="_blank" rel="noopener">agent-card.json</a>
+            <a href="./.well-known/ai-catalog.json" target="_blank" rel="noopener">ai-catalog.json</a>
+            <a href="./.well-known/poppy.json" target="_blank" rel="noopener">poppy.json</a>
+            <a href="./facts/agent-manifest.json" target="_blank" rel="noopener">facts/</a>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <section id="assistant" class="assistant assistant-shell reveal" aria-labelledby="assistant-heading">
+          <div class="assistant-intro">
+            <div>
+              <span class="eyebrow">HomeConnect assistant</span>
+              <h2 id="assistant-heading">Ask HomeConnect Fiber</h2>
+              <p class="sub-copy">Check technician windows, hold one, move appointment HC-5510, or consult CONTINUITY — with your own key or zero-key replay.</p>
+            </div>
+            <div class="peer-assistant-actions">
+              <span class="mono-tag">homeconnect_scheduler</span>
+              <button id="peer-local-ai-btn" type="button" class="secondary-btn btn-sm" title="Auto-detects Chrome Built-in Gemini Nano (LanguageModel) or local loopback Ollama with zero cloud egress">On-device / local AI</button>
+              <button id="peer-zero-key-btn" type="button" class="btn btn-primary btn-sm">Try without a key</button>
+            </div>
+          </div>
+          <div class="peer-prompts-row" role="group" aria-label="Suggested prompts">
+            <button type="button" class="peer-prompt-chip" data-prompt="What technician windows and fees are available to reschedule fiber appointment HC-5510?">Check windows &amp; €0 fee</button>
+            <button type="button" class="peer-prompt-chip" data-prompt="Hold the Friday 2026-11-20 technician window without changing my current appointment.">Hold Friday 10 min</button>
+            <button type="button" class="peer-prompt-chip" data-prompt="How do I coordinate my moving van, parking, and electricity alongside my fiber visit? Ask CONTINUITY.">Ask CONTINUITY (cross-origin)</button>
+          </div>
+          <p class="assistant-note">Your messages and this page's data go to the LLM provider you choose in the settings below. You confirm anything that cannot be undone before it happens.</p>
+          <p id="assistant-status" role="status" class="status-line">Connecting the assistant… If this message stays, the assistant could not load. You can still use the page directly.</p>
+          <div id="agent-app">
+            <div data-ns-slot="header"></div>
+            <div class="assistant-panels">
+              <div data-ns-slot="chat"></div>
+              <div data-ns-slot="agents"></div>
+            </div>
+            <div data-ns-slot="settings"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>HomeConnect Fiber</strong>
+        <p class="policy-note">Independent demonstration broadband provider built for the Cognizant Open Agentic Web Challenge. Appointments and prices are demonstration data.</p>
+      </div>
+      <p class="policy-note">Part of the CONTINUITY ecosystem · served from its own origin.</p>
+    </div>
+  </footer>
+</body>
+</html>
